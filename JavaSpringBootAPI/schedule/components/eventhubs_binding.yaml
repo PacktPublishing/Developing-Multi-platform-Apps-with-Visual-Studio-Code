@@ -1,0 +1,19 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: eventhubsscheduleroutput
+spec:
+  type: bindings.kafka
+  metadata:
+    - name: brokers
+      value: vscodebook.servicebus.windows.net:9093
+    - name: publishTopic
+      value: notificationstopic
+    - name: consumerGroup
+      value: $Default
+    - name: authRequired
+      value: true
+    - name: saslUsername
+      value: $ConnectionString
+    - name: saslPassword
+      value: Endpoint=sb://vscodebook.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=7f2bWIsiOXuvV4ZkWkr/IuBZk4/0C5roqUWeZpTQlwM=;EntityPath=notificationstopic

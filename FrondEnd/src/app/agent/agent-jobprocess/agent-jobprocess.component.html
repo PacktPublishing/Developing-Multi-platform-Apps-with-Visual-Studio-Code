@@ -1,0 +1,81 @@
+<h1 class="display-4">Process Job Request</h1>
+<div *ngIf="showSuccess" class="alert alert-success">
+    {{successMessage}}
+</div>
+<div *ngIf="showError" class="alert alert-danger">
+    {{errorMessage}}
+</div>
+<div>
+    <form #requestForm="ngForm" (ngSubmit)="processAgentJob(requestForm)">
+        <div class="form-group">
+            <label for="jobType">Type of Job</label>
+            <select id="jobType" class="form-control" name="jobType" [(ngModel)]="agentJob.jobType" disabled="false">
+                <option selected>Choose</option>
+                <option>Carpentry</option>
+                <option>Masonary</option>
+                <option>Plumbing</option>
+                <option>Air Conditioning</option>
+                <option>Others</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="jobDescription">Description</label>
+            <textarea id="jobDescription" required class="form-control" name="jobDescription"
+            [(ngModel)]="agentJob.jobDescription" #descriptionProperty="ngModel"  
+            placeholder="Please enter the Job reqeuest details"  disabled="false"></textarea>
+            <span class="help-block" *ngIf="(descriptionProperty.touched || descriptionProperty.dirty) && descriptionProperty.errors">
+                <small *ngIf="descriptionProperty.errors.required">Please enter the description </small>
+            </span>
+        </div>
+        <div class="form-group">
+            <label id="requestDate">Preferred Date and Time</label>
+            <input id="requestDate" class="form-control" type="datetime-local" name="requestDate"
+            [(ngModel)]="agentJob.requestDate"  disabled="false">
+        </div>
+        <div class="form-group">
+            <label for="contactNo">Contact No.</label>
+            <input id="contactNo" required class="form-control"
+            type="tel" #contactProperty="ngModel" name="contactNo" [(ngModel)]="agentJob.contactNo"  disabled="false">
+            <span class="help-block" *ngIf="(contactProperty.touched || contactProperty.dirty) && contactProperty.errors">
+                <small *ngIf="contactProperty.errors.required">Please enter contact no. </small>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input id="address" required type="text" class="form-control" 
+            #addressProperty="ngModel" name="address" [(ngModel)]="agentJob.address"  disabled="false">
+            <span class="help-block" *ngIf="(addressProperty.touched || addressProperty.dirty) && addressProperty.errors">
+                <small *ngIf="addressProperty.errors.required">Please enter the address </small>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input id="city" required type="text" class="form-control" 
+            #cityProperty="ngModel" name="city" [(ngModel)]="agentJob.city"  disabled="false">
+            <span class="help-block" *ngIf="(cityProperty.touched || cityProperty.dirty) && cityProperty.errors">
+                <small *ngIf="cityProperty.errors.required">Please enter the city </small>
+            </span>
+        </div>
+        
+        <div class="form-group">
+            <label for="jobType">Status</label>
+            <select id="jobType" class="form-control" name="status" [(ngModel)]="agentJob.status">
+                <option>Open</option>
+                <option>In Process</option>
+                <option>Closed</option>
+            </select>
+        </div>        
+        <div class="form-group">
+            <label for="agentRemarks">Agent Remarks</label>
+            <textarea id="agentRemarks" required class="form-control" name="agentRemarks"
+            [(ngModel)]="agentJob.agentRemarks" #agentRemarksProperty="ngModel"  
+            placeholder="Please enter remarks" ></textarea>
+            <span class="help-block" *ngIf="(agentRemarksProperty.touched || agentRemarksProperty.dirty) && agentRemarksProperty.errors">
+                <small *ngIf="agentRemarksProperty.errors.required">Please enter some remarks </small>
+            </span>
+        </div>
+
+        <button type="submit" class="btn btn-dark" [disabled]="!requestForm.valid">Save Request</button>
+    </form>
+</div>
+<hr>

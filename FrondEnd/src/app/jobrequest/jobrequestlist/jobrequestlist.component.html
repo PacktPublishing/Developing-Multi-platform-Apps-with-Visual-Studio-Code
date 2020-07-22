@@ -1,0 +1,33 @@
+<h1 class="display-4">Job Requests</h1>
+
+<div *ngIf="showError" class="alert alert-danger">
+    {{errorMessage}}
+</div>
+
+<div>
+    <button class="btn btn-outline-secondary" type="button" routerLink="/jobrequest/request">Create Job Request</button>
+</div>
+<br>
+<div>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Description</th>
+                <th scope="col">Request Date</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let request of requestList">
+                <td>{{request.jobType}}</td>
+                <td>{{request.jobDescription}}</td>
+                <td>{{request.requestDate}}</td>
+                <td>{{request.status}}</td>
+                <td><button type="button" class="btn btn-outline-dark" [routerLink]="['/jobrequest/request',request._id]">Display</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

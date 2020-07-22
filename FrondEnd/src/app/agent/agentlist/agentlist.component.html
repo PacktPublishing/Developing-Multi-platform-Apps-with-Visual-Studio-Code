@@ -1,0 +1,30 @@
+<h1 class="display-4">Assigned Jobs</h1>
+
+<div *ngIf="showError" class="alert alert-danger">
+    {{errorMessage}}
+</div>
+
+<br>
+<div>
+    
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Type</th>
+                <th scope="col">Description</th>
+                <th scope="col">Request Date</th>
+                <th scope="col">Status</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let agentJob of agentJobList">
+                <td>{{agentJob.jobType}}</td>
+                <td>{{agentJob.jobDescription}}</td>
+                <td>{{agentJob.requestDate}}</td>
+                <td>{{agentJob.status}}</td>
+                <td><button type="button" class="btn btn-outline-dark" [routerLink]="['/agent/request',agentJob.id]">Process</button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

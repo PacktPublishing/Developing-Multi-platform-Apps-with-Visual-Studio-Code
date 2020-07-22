@@ -1,0 +1,27 @@
+<h1 class="display-4">Job Request</h1>
+<div *ngIf="showError" class="alert alert-danger">
+    {{errorMessage}}
+</div>
+<div class="card"> 
+    <div class="card-header">
+        <h4>Job Request</h4>
+      </div>    
+    <dl class="card-body">
+        <dt class="col-sm-3">Type</dt>
+        <dd class="col-sm-9">{{jobRequest.jobType}}</dd>
+        <dt class="col-sm-3">Description</dt>
+        <dd class="col-sm-9">{{jobRequest.jobDescription}}</dd>     
+        <dt class="col-sm-3">Date</dt>
+        <dd class="col-sm-9">{{jobRequest.requestDate}}</dd>  
+        <dt class="col-sm-3">Contact No</dt>
+        <dd class="col-sm-9">{{jobRequest.contactNo}}</dd>     
+        <dt class="col-sm-3">Address</dt>
+        <dd class="col-sm-9">{{jobRequest.address}}</dd>   
+        <dt class="col-sm-3">City</dt>
+        <dd class="col-sm-9">{{jobRequest.city}}</dd>    
+        <dt class="col-sm-3">Status</dt>
+        <dd class="col-sm-9">{{jobRequest.status}}</dd>                                                
+    </dl>
+</div>
+<hr>
+<button type="button" class="btn btn-outline-dark" (click)="back()">Back</button>

@@ -1,0 +1,42 @@
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: schedulejob
+spec: 
+  replicas: 2
+  selector: 
+    matchLabels: 
+      app: jos
+      component: schedulejob
+  template: 
+    metadata: 
+      labels: 
+        app: jos
+        component: schedulejob
+    spec: 
+      containers: 
+        - 
+          image: "josappregistry.azurecr.io/schedulejob:1.0"
+          name: schedulejob
+          ports: 
+            - 
+              containerPort: 9003
+      imagePullSecrets:
+      - name: josappregistry
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: jos
+  name: schedulejob
+spec:
+  ports:
+  - port: 9003
+    targetPort: 9003
+    protocol: TCP
+  type: LoadBalancer
+  selector:
+    app: jos
+    component: schedulejob

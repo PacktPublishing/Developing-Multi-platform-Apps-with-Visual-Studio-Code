@@ -1,0 +1,62 @@
+<h1 class="display-4">Create Job Request</h1>
+<div *ngIf="showSuccess" class="alert alert-success">
+    {{successMessage}}
+</div>
+<div *ngIf="showError" class="alert alert-danger">
+    {{errorMessage}}
+</div>
+<div>
+    <form #requestForm="ngForm" (ngSubmit)="onSubmit(requestForm)">
+        <div class="form-group">
+            <label for="jobType">Type of Job</label>
+            <select id="jobType" class="form-control" name="jobType" [(ngModel)]="jobRequest.jobType">
+                <option selected>Choose</option>
+                <option>Carpentry</option>
+                <option>Masonary</option>
+                <option>Plumbing</option>
+                <option>Air Conditioning</option>
+                <option>Others</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="jobDescription">Description</label>
+            <textarea id="jobDescription" required class="form-control" name="jobDescription"
+            [(ngModel)]="jobRequest.jobDescription" #descriptionProperty="ngModel"  
+            placeholder="Please enter the Job reqeuest details"></textarea>
+            <span class="help-block" *ngIf="(descriptionProperty.touched || descriptionProperty.dirty) && descriptionProperty.errors">
+                <small *ngIf="descriptionProperty.errors.required">Please enter the description </small>
+            </span>
+        </div>
+        <div class="form-group">
+            <label id="requestDate">Preferred Date and Time</label>
+            <input id="requestDate" class="form-control" type="datetime-local" name="requestDate"
+            [(ngModel)]="jobRequest.requestDate">
+        </div>
+        <div class="form-group">
+            <label for="contactNo">Contact No.</label>
+            <input id="contactNo" required class="form-control"
+            type="tel" #contactProperty="ngModel" name="contactNo" [(ngModel)]="jobRequest.contactNo">
+            <span class="help-block" *ngIf="(contactProperty.touched || contactProperty.dirty) && contactProperty.errors">
+                <small *ngIf="contactProperty.errors.required">Please enter contact no. </small>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input id="address" required type="text" class="form-control" 
+            #addressProperty="ngModel" name="address" [(ngModel)]="jobRequest.address">
+            <span class="help-block" *ngIf="(addressProperty.touched || addressProperty.dirty) && addressProperty.errors">
+                <small *ngIf="addressProperty.errors.required">Please enter the address </small>
+            </span>
+        </div>
+        <div class="form-group">
+            <label for="city">City</label>
+            <input id="city" required type="text" class="form-control" 
+            #cityProperty="ngModel" name="city" [(ngModel)]="jobRequest.city">
+            <span class="help-block" *ngIf="(cityProperty.touched || cityProperty.dirty) && cityProperty.errors">
+                <small *ngIf="cityProperty.errors.required">Please enter the city </small>
+            </span>
+        </div>        
+        <button type="submit" class="btn btn-dark" [disabled]="!requestForm.valid">Send Request</button>
+    </form>
+</div>
+<hr>

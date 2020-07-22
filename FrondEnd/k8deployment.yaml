@@ -1,0 +1,42 @@
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: josapp
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: jos
+      component: josapp
+  template: 
+    metadata: 
+      labels: 
+        app: jos
+        component: josapp
+    spec: 
+      containers: 
+        - 
+          image: "josappregistry.azurecr.io/josapp:1.0"
+          name: josapp
+          ports: 
+            - 
+              containerPort: 4200
+      imagePullSecrets:
+      - name: josappregistry
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: jos
+  name: josapp
+spec:
+  ports:
+  - port: 4200
+    targetPort: 4200
+    protocol: TCP
+  type: LoadBalancer
+  selector:
+    app: jos
+    component: josapp

@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  schedule:
+    image: schedule
+    build: .
+    ports:
+      - 9003

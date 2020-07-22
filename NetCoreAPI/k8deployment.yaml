@@ -1,0 +1,42 @@
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: hostedservice
+spec: 
+  replicas: 1
+  selector: 
+    matchLabels: 
+      app: jos
+      component: hostedservice
+  template: 
+    metadata: 
+      labels: 
+        app: jos
+        component: hostedservice
+    spec: 
+      containers: 
+        - 
+          image: "josappregistry.azurecr.io/hostedservice:1.0"
+          name: hostedservice
+          ports: 
+            - 
+              containerPort: 6000
+      imagePullSecrets:
+      - name: josappregistry
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: jos
+  name: hostedservice
+spec:
+  ports:
+  - port: 6000
+    targetPort: 6000
+    protocol: TCP
+  type: LoadBalancer
+  selector:
+    app: jos
+    component: hostedservice

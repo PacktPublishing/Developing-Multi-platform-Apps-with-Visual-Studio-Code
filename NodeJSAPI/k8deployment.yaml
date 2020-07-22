@@ -1,0 +1,42 @@
+--- 
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: jobrequestservice
+spec: 
+  replicas: 2
+  selector: 
+    matchLabels: 
+      app: jos
+      component: jobrequestservice
+  template: 
+    metadata: 
+      labels: 
+        app: jos
+        component: jobrequestservice
+    spec: 
+      containers: 
+        - 
+          image: "josappregistry.azurecr.io/jobrequestservice:1.0"
+          name: jobrequestservice
+          ports: 
+            - 
+              containerPort: 3001
+      imagePullSecrets:
+      - name: josappregistry
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: jos
+  name: jobrequestservice
+spec:
+  ports:
+  - port: 3001
+    targetPort: 3001
+    protocol: TCP
+  type: LoadBalancer
+  selector:
+    app: jos
+    component: jobrequestservice
