@@ -1,0 +1,21 @@
+{
+  "name": "k8sobj",
+  "displayName": "k8sext",
+  "description": "Kubernetes Objects Scaffolding Extension",
+  "version": "1.0.0",
+  "publisher": "VS Code Book",
+  "engines": {
+    "vscode": "^1.48.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "yaml",
+        "path": "./snippets/snippets.code-snippets"
+      }
+    ]
+  }
+}

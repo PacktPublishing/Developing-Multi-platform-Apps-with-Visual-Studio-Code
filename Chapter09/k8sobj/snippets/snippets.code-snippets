@@ -1,0 +1,54 @@
+{
+  "Kubernetes Deployment Object Scaffolding Extension": {
+    "prefix": "!k8deploy",
+    "body": [
+      "apiVersion: apps/v1",
+      "kind: Deployment",
+      "metadata:",
+      "name: ${1:deploymentname}",
+      "spec:",
+      "replicas: ${2:1}",
+      "selector:",
+      "    matchLabels:",
+      "    app: ${3:appname}",
+      "    component: ${4:componentname}",
+      "template:",
+      "    metadata:",
+      "    labels:",
+      "        app: ${3:appname}",
+      "        component: ${4:componentname}",
+      "    spec:",
+      "    containers:",
+      "        -",
+      "        image: \"${5:imagename}\"",
+      "        name: ${1:deploymentname}",
+      "        ports:",
+      "            -",
+      "            containerPort: ${6:80}",
+      "    imagePullSecrets:",
+      "    - name: ${7:imagepullsecretname}"
+    ],
+    "description": "Kubernetes Deployment Extension"
+  },
+  "Kubernetes Service Object Scaffolding Extension": {
+    "prefix": "!k8service",
+    "body": [
+      "apiVersion: v1",
+      "kind: Service",
+      "metadata:",
+      "  labels:",
+      "    app: ${1:appname}",
+      "  name: ${2:servicename}",
+      "spec:",
+      "  ports:",
+      "  - port: ${3:80}",
+      "    targetPort: ${4:80}",
+      "    protocol: TCP",
+      "  type: ${5:LoadBalancer}",
+      "  selector:",
+      "    app: ${1:appname}",
+      "    component: ${6:componentname}"
+    ],
+    "description": "Kubernetes Service Extension"
+  }
+}

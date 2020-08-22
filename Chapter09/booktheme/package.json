@@ -1,0 +1,22 @@
+{
+  "name": "booktheme",
+  "displayName": "booktheme",
+  "description": "Color Theme Extension ",
+  "version": "1.0.0",
+  "publisher": "VS Code Book",
+  "engines": {
+    "vscode": "^1.46.0"
+  },
+  "categories": [
+    "Themes"
+  ],
+  "contributes": {
+    "themes": [
+      {
+        "label": "booktheme",
+        "uiTheme": "vs-dark",
+        "path": "./themes/booktheme-color-theme.json"
+      }
+    ]
+  }
+}
