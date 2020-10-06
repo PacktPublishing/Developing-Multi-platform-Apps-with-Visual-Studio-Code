@@ -54,7 +54,7 @@ With the following software and hardware list you can run all code files present
 | Azure CLI | Windows, Mac OS X, and Linux (Any) |
 |  Git| Windows, Mac OS X, and Linux (Any) |
 
-We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://static.packt-cdn.com/downloads/9781838822934_ColorImagespdf).
+We also provide a PDF file that has color images of the screenshots/diagrams used in this book. [Click here to download it](https://static.packt-cdn.com/downloads/9781838822934_ColorImages.pdf).
 
 ### Related products
 * Hands-On Software Architecture with C# 8 and .NET Core 3 [[Packt]](https://www.packtpub.com/product/hands-on-software-architecture-with-c-8-and-net-core-3/9781789800937?utm_source=github&utm_medium=repository&utm_campaign=9781789800937) [[Amazon]](https://www.amazon.com/dp/1789800935)
