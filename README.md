@@ -68,3 +68,7 @@ He is a prolific writer and has published few books on Enterprise Application Ar
 
 **Khusro Habib**
 has been working in the IT industry for almost 20 years. He is a veteran programmer and delivered several enterprise grade solutions in the capacity of a consultant and solution architect. He is a certified Enterprise Architect Practitioner with the experience to design change for an enterprise. His current focus is on Cloud Computing, Web and Mobile development, Data and Process Integration, Analytics and Machine Learning. With knowledge on various technology domains, he can place technology in the right context and address complex problems with workable IT solutions. He has a unique way of explaining things by breaking them down and then gradually building them up to create a better understanding.
+### Download a free PDF
+
+ <i>If you have already purchased a print or Kindle version of this book, you can get a DRM-free PDF version at no cost.<br>Simply click on the link to claim your free PDF.</i>
+<p align="center"> <a href="https://packt.link/free-ebook/9781838822934">https://packt.link/free-ebook/9781838822934 </a> </p>
